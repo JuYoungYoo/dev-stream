@@ -2,14 +2,14 @@ description 'API : Development infomation for SNS'
 
 bootJar {
     archiveName = 'api-sns.jar'
+//    enabled = false
 }
+jar { enabled = true }
 
 dependencies {
 
     // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all
     testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
-
-
 
     compile('com.h2database:h2')
     compile('org.springframework.boot:spring-boot-starter-web')
@@ -20,5 +20,14 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-jdbc:2.0.3.RELEASE')
     compile('org.apache.tomcat:tomcat-jdbc:7.0.19')
     compile('org.springframework.boot:spring-boot-starter-jdbc')
+
+
+//    compile("com.querydsl:querydsl-apt:4.1.4")
+//    compile("com.querydsl:querydsl-jpa:4.1.4")
+//    compile("org.hibernate:hibernate-validator:6.0.10.Final")
+//    compile("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final")
+//    compile("com.fasterxml.jackson.core:jackson-databind")
+//    compile('com.fasterxml.jackson.datatype:jackson-datatype-hibernate5')
+//    compile('org.hibernate:hibernate-spatial')
 }
 

@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.Is.isA;
 import static org.junit.Assert.*;
 
 
@@ -21,11 +20,11 @@ import static org.junit.Assert.*;
 public class ShopsRepositoryTest {
 
     @Autowired
-    private ShopRepository shopRepository;
+    private ShopsRepository shopsRepository;
 
     @After
     public void cleanup() throws Exception {
-        shopRepository.deleteAll();
+        shopsRepository.deleteAll();
     }
 
     @Test
@@ -33,10 +32,10 @@ public class ShopsRepositoryTest {
         // given
         LocalDateTime now = LocalDateTime.now();
         Shops shop = Shops.builder().address("test2@gmail.com").name("저장").build();
-        shopRepository.save(shop);
+        shopsRepository.save(shop);
 
         // when
-        List<Shops> shops = shopRepository.findAll();
+        List<Shops> shops = shopsRepository.findAll();
 
         // then
         Shops result = shops.get(shops.size() - 1);
@@ -48,11 +47,11 @@ public class ShopsRepositoryTest {
     @Test
     public void 쇼핑고객_불러오기() {
         //given
-        shopRepository.save(Shops.builder().name("테스트1")
+        shopsRepository.save(Shops.builder().name("테스트1")
         .address("test@naver.com").build());
 
         //when
-        List<Shops> shops = shopRepository.findAll();
+        List<Shops> shops = shopsRepository.findAll();
 
         //then
         Shops shop = shops.get(shops.size()-1);

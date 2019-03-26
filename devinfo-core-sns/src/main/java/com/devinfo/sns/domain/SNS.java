@@ -27,6 +27,7 @@ public class SNS {
         this.title = title;
         this.content = content;
     }
+
     public String getName() {
         return name;
     }

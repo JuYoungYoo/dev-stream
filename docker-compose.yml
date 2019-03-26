@@ -14,7 +14,8 @@ services:
     volumes:
     - db:/var/lib/mysql
 
-  sns:
+  api.sns:
+    restart: always
     build:
       context: devinfo-core-sns
       dockerfile: Dockerfile
@@ -23,7 +24,8 @@ services:
     ports:
       - '8081:8081'
 
-  video:
+  api.video:
+    restart: always
     build:
       context: devinfo-core-video
       dockerfile: Dockerfile
@@ -33,13 +35,17 @@ services:
       - '8082:8082'
 
   web:
+    restart: always
     build:
       context: devinfo-web
       dockerfile: Dockerfile
     image: devinfo/web:latest
     container_name: web
     ports:
-      - '80:8080'
+      - '8080:8080'
+    depends_on:
+      - api.sns
+      - api.video
 
 volumes:
   db:

@@ -4,6 +4,7 @@ bootJar{
     archiveName = 'web.jar'
 }
 
+
 dependencies {
     compile project(':devinfo-core-sns')
     compile project(':devinfo-core-video')

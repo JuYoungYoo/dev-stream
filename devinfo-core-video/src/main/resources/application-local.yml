@@ -1,0 +1,24 @@
+
+
+## todo : DB change ? flyway
+
+spring:
+  profiles: local
+  datasource:
+    platform: H2
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:~/testDB
+      username: sa
+      password:
+    data: classpath:migrate/data-H2.sql
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        web-allow-others: true
