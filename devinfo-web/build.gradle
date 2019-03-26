@@ -1,0 +1,21 @@
+description 'Web server'
+
+bootJar{
+    archiveName = 'web.jar'
+}
+
+dependencies {
+    compile project(':devinfo-core-sns')
+    compile project(':devinfo-core-video')
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+//    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0' // thymeleaf >> handlebars
+//    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    compile 'org.springframework.boot:spring-boot-devtools'
+}
+
+

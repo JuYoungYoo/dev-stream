@@ -1,0 +1,5 @@
+rootProject.name = 'dev-info'
+
+include 'devinfo-core-sns'
+include 'devinfo-core-video'
+include 'devinfo-web'

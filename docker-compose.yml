@@ -1,0 +1,45 @@
+version: "3.3"
+
+services:
+  db:
+    image: mysql:5.6
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'devinfo'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'test'
+      MYSQL_ROOT_PASSWORD: 'test'
+    ports:
+    - '3306:3306'
+    volumes:
+    - db:/var/lib/mysql
+
+  sns:
+    build:
+      context: devinfo-core-sns
+      dockerfile: Dockerfile
+    image: devinfo/api-sns:latest
+    container_name: api-sns
+    ports:
+      - '8081:8081'
+
+  video:
+    build:
+      context: devinfo-core-video
+      dockerfile: Dockerfile
+    image: devinfo/api-video:latest
+    container_name: api-video
+    ports:
+      - '8082:8082'
+
+  web:
+    build:
+      context: devinfo-web
+      dockerfile: Dockerfile
+    image: devinfo/web:latest
+    container_name: web
+    ports:
+      - '80:8080'
+
+volumes:
+  db:

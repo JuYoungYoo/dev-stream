@@ -1,0 +1,15 @@
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/devinfo #?characterEncoding=UTF-8&serverTimezone=UTC
+    username: user
+    #password: test
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  # 운영시에는 validate
+    show-sql: true
+
+
+
+
